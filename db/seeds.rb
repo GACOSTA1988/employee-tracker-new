@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Employee.destroy_all
+
+50.times do |index|
+  Employee.create!(name: Faker::Games::Pokemon.name)
+end
+
+p "created #{Employee.count} Pokemon"
