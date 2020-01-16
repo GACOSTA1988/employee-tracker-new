@@ -13,6 +13,7 @@ class EmployeesController < ApplicationController
   def create
     @employee = Employee.new(employee_params)
     if @employee.save
+      flash[:notice] = "Employee successfully added!"
       redirect_to employees_path
     else
       render :new
