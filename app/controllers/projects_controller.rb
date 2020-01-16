@@ -22,10 +22,10 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-  @employee = Employee.find(params[:employee_id])
-  @project = Project.find(params[:id])
-  render :edit
-end
+    @employee = Employee.find(params[:employee_id])
+    @project = Project.find(params[:id])
+    render :edit
+  end
 
   def show
     @employee = Employee.find(params[:employee_id])
@@ -34,23 +34,23 @@ end
   end
 
   def update
-  @project = Project.find(params[:id])
-  if @project.update(project_params)
-    redirect_to employee_path(@project.employee)
-  else
-    render :edit
+    @project = Project.find(params[:id])
+    if @project.update(project_params)
+      redirect_to employee_path(@project.employee)
+    else
+      render :edit
+    end
   end
-end
 
-def destroy
-  @project = Project.find(params[:id])
-  @project.destroy
-  redirect_to employee_path(@project.employee)
-end
+  def destroy
+    @project = Project.find(params[:id])
+    @project.destroy
+    redirect_to employee_path(@project.employee)
+  end
 
   private
-    def project_params
-      params.require(:project).permit(:name)
-    end
+  def project_params
+    params.require(:project).permit(:name)
+  end
 
 end
