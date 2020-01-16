@@ -17,6 +17,22 @@
 
 <p><%= link_to "Add a division", new_employee_division_path(@employee) %></p>
 
+<% if @employee.projects.any? %>
+  <h4>Here are the projects for this employee:</h4>
+
+  <% @employee.projects.each do |project| %>
+    <ul>
+      <li>
+        <%= link_to project.name, employee_project_path(@employee, project) %>
+      </li>
+    </ul>
+  <% end %>
+<% else %>
+  <p>No projects are listed for this employee.</p>
+<% end %>
+
+<p><%= link_to "Add a project", new_employee_project_path(@employee) %></p>
+
 <p><%= link_to "Edit", edit_employee_path(@employee) %></p>
 <p><%= link_to "Delete employee", employee_path(@employee),
                         :data => {:confirm => "Are you sure?",

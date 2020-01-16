@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
    root to: 'employees#index'
-end
+   resources :employees do
+     resources :divisions
+     resources :projects
+   end
+     end
+   
