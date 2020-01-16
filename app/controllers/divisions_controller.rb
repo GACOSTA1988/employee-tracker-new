@@ -1,9 +1,9 @@
 class DivisionsController < ApplicationController
 
   def index
-    # Code for listing all employees goes here.
+    @divisions = Division.all
+    render :index
   end
-
   def new
     @employee = Employee.find(params[:employee_id])
     @division = @employee.divisions.new
