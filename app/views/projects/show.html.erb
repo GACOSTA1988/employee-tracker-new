@@ -1,0 +1,10 @@
+<h1>Project: <%= @project.name %></h1>
+<h2>Employee: <%= @employee.name %></h2>
+<h3><%= @project.lyrics %></h3>
+
+<p><%= link_to "Edit project", edit_employee_project_path(@employee, @project) %></p>
+<p><%= link_to "Delete project", employee_project_path(@employee, @project),
+                        :data => {:confirm => "Are you sure?",
+                                       :method => "delete"} %></p>
+
+<p><%= link_to "Return to employee", employee_path(@employee) %></p>

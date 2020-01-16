@@ -1,0 +1,16 @@
+<% if @division.errors.any? %>
+  <h3>Please fix these errors:</h3>
+  <ul>
+    <% @division.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<h1>Add a new division:</h1>
+
+<%= form_for [@employee, @division] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <p><%= f.submit %></p>
+<% end %>
