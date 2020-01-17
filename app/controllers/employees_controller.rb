@@ -1,9 +1,13 @@
 class EmployeesController < ApplicationController
 
   def index
+    if params[:search]
+      @employees = Employee.search(params[:search])
+    else params[:id]
     @employees = Employee.all
     render :index
   end
+end
 
   def new
     @employee = Employee.new
@@ -26,7 +30,7 @@ class EmployeesController < ApplicationController
   end
 
   def show
-    @employee = Employee.find(params[:id])
+      @employee = Employee.find(params[:id])
     render :show
   end
 
